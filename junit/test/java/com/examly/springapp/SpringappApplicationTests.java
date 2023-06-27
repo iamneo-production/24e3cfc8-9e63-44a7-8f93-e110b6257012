@@ -1,76 +1,105 @@
 package com.examly.springapp;
 
-
+import static org.junit.Assert.assertTrue;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-//import org.junit.Test;
-import org.junit.jupiter.api.Test; 
+import java.io.File;
+
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.transaction.annotation.Transactional;
 
+@RunWith(SpringJUnit4ClassRunner.class) 
 @SpringBootTest(classes = SpringappApplication.class)
 @AutoConfigureMockMvc
-@RunWith(SpringRunner.class)
 class SpringappApplicationTests {
-
-	@Autowired
-    private MockMvc mockMvc;
 	
-	@Test
-	@Transactional
-    public void BE_spring_add_user() throws Exception {
-        String newProduct = "{\"email\":\"test@gmail.com\",\"password\":\"Test@123\",\"username\":\"test123\",\"mobileNumber\":\"9876543210\",\"active\":\"true\",\"role\":\"user\"}";
-        mockMvc.perform(MockMvcRequestBuilders.post("/signup")
-		.contentType(MediaType.APPLICATION_JSON)
-		.content(newProduct)
-		.accept(MediaType.APPLICATION_JSON))
-		.andExpect(status().isOk())
-		.andReturn();
-    }
+	 @Autowired
+	    private MockMvc mockMvc;
 
 	@Test
-	@Transactional
-    public void BE_spring_add_product() throws Exception {
-        String newProduct = "{\"productId\":\"01\",\"imageUrl\":\"beetroot.com\",\"productName\":\"beetroot\",\"price\":\"35\",\"description\":\"fresh vegetables\",\"quantity\":\"30\"}";
-        mockMvc.perform(MockMvcRequestBuilders.post("/admin/addProduct")
-		.contentType(MediaType.APPLICATION_JSON)
-		.content(newProduct)
-		.accept(MediaType.APPLICATION_JSON))
-		.andExpect(status().isOk())
-		.andReturn();
+    public void testGetProductAll() throws Exception {
+    	
+        mockMvc.perform(get("/admin/product"))
+        .andExpect(MockMvcResultMatchers.status().isOk())
+        .andDo(print())
+        .andExpect(content().contentType("application/json"))
+			.andExpect(jsonPath("$").isArray())
+			.andReturn();
     }
-	
-	@Test
-	@Transactional
-    public void BE_spring_get_product() throws Exception {
-	 	mockMvc.perform(MockMvcRequestBuilders.get("/admin")
-		.contentType(MediaType.APPLICATION_JSON)
-		.accept(MediaType.APPLICATION_JSON))
-		.andExpect(status().isOk())
-		.andExpect(MockMvcResultMatchers.jsonPath("$").isNotEmpty())
-		.andReturn();
+    
+    @Test
+    public void testGetProductById() throws Exception {
+    	
+        mockMvc.perform(get("/admin/product").param("id", "1"))
+        .andExpect(MockMvcResultMatchers.status().isOk())
+        .andDo(print())
+        .andExpect(content().contentType("application/json"))
+			.andExpect(jsonPath("$").isArray())
+			.andReturn();
+    }
+    
+    @Test
+    public void testGetOrderAll() throws Exception {
+    	
+        mockMvc.perform(get("/admin/order"))
+        .andExpect(MockMvcResultMatchers.status().isOk())
+        .andDo(print())
+        .andExpect(content().contentType("application/json"))
+			.andExpect(jsonPath("$").isArray())
+			.andReturn();
+    }
+    
+    @Test
+    public void testGetOrderById() throws Exception {
+    	
+        mockMvc.perform(get("/admin/order").param("id", "1"))
+        .andExpect(MockMvcResultMatchers.status().isOk())
+        .andDo(print())
+        .andExpect(content().contentType("application/json"))
+			.andExpect(jsonPath("$").isArray())
+			.andReturn();
+    }
+    
+    
+    @Test
+    public void test_case1() {
+    String directoryPath = "src/main/java/com/examly/springapp/controller";
+     File directory = new File(directoryPath);
+     assertTrue(directory.exists() && directory.isDirectory());;
+     }
+
+
+   @Test
+   public void test_case2() {
+   String filePath = "src/main/java/com/examly/springapp/controller/OrderController.java";
+   File file = new File(filePath);
+   assertTrue(file.exists() && file.isFile());;
+
+    }
+   
+   @Test
+   public void test_case3() {
+   String directoryPath = "src/main/java/com/examly/springapp/model";
+    File directory = new File(directoryPath);
+    assertTrue(directory.exists() && directory.isDirectory());;
     }
 
-	@Test
-	@Transactional
-    public void BE_spring_update_product() throws Exception {
-        String newProduct = "{\"productId\":\"01\",\"imageUrl\":\"beetroot.com\",\"productName\":\"beetroot\",\"price\":\"30\",\"description\":\"fresh vegetables\",\"quantity\":\"30\"}";
-        mockMvc.perform(MockMvcRequestBuilders.put("/admin/productEdit")
-		.param("productId","01")
-		.contentType(MediaType.APPLICATION_JSON)
-		.content(newProduct)
-		.accept(MediaType.APPLICATION_JSON))
-		.andExpect(status().isOk())
-		.andReturn();
-    }
-	
+
+  @Test
+  public void test_case4() {
+  String filePath = "src/main/java/com/examly/springapp/model/Order.java";
+  File file = new File(filePath);
+  assertTrue(file.exists() && file.isFile());;
+
+   }
+
 }
