@@ -8,7 +8,7 @@ export default function LoginPage(props) {
 
     const handleLogin =()=>
     {
-        alert(clicked);
+        alert("clicked");
     }
     
     return (
