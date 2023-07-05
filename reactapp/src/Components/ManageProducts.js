@@ -134,7 +134,7 @@ export default function Manageproducts() {
                     <td>{product.quantity}</td>
                     <td>
                       <button onClick={() => handleDeleteProduct(product.productId,product.productName)} id ={`deleteProduct${id}` }>Delete</button>
-                      <button onClick={() => handleEdit(product.productId, product.productName, product.price, product.quantity, product.imageUrl)} edit={`editProduct${id}`}>Edit</button>
+                      <button onClick={() => handleEdit(product.productId, product.productName, product.price, product.quantity, product.imageUrl)} id={`editProduct${id}`}>Edit</button>
                     </td>
                   </tr>
                 ))}
