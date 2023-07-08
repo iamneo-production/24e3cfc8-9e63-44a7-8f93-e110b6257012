@@ -1,6 +1,6 @@
 import NavBar from "./NavBar";
 // import "./home.css";
-// import Carts from "./Carts"
+import Carts from "./Carts"
 import { useEffect, useState } from 'react';
 import "../Styles/cart.css"
 import axios from 'axios';
@@ -10,6 +10,8 @@ export default function Cart({cart,order,setorder,setcart}){
   const [id,setid]=useState(data.email)
   const [cartItems, setcartItems]=useState([])
   const [deleteCartId, setdeleteCartId]=useState(0)
+  const [status, setStatus] = useState("In Progress");
+  const [orderItems,setOrderItems]=useState([]);
   useEffect(() => {
     axios.get(`http://localhost:8080/cart/${id}`).then(response => {
       setcartItems(response.data);
@@ -28,9 +30,41 @@ export default function Cart({cart,order,setorder,setcart}){
 
   };
 
-function handleOrder(){
+  function handleOrder(){
+    const tempOrderItems = []; 
+    cartItems.forEach((item) => {
+      const nItems = {
+        productName: item.productName,
+        quantity: item.quantity,
+        price: item.price
+      };
+      tempOrderItems.push(nItems); 
+    });
   
-}
+    setOrderItems(tempOrderItems);
+  
+    const nOrders = {
+      userId: id,
+      orderItems: tempOrderItems,
+      status: status
+    };
+  
+    try {
+      axios.post('http://localhost:8080/saveOrder', nOrders);
+    } catch (error) {
+      console.error(error);
+    }
+    
+    // delete cart items once once order is placed
+    try {
+      axios.delete(`http://localhost:8080/cart/deleteCart/${id}`);
+    } catch (error) {
+      console.error(error);
+    }
+    
+    
+  }
+  
 
     return(
         <>
