@@ -10,7 +10,7 @@
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: blue;
     font-size: 1.5em;
-    opacity: 1; /* Firefox */
+    opacity: 1;
   }
 .input{
     
