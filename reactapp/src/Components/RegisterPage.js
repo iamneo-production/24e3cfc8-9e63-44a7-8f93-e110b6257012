@@ -20,7 +20,7 @@ export default function RegisterPage(){
     const handleSignup = async (e) => {
       console.log(user);
         e.preventDefault();
-        const response = axios.post('http://localhost:8080/signup',user).then((response)=>{
+        const response = axios.post('https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/signup',user).then((response)=>{
           toast("Registration succesfull")
           console.log(response.data)
           navigate('/');
