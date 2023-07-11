@@ -15,21 +15,21 @@ export default function Orders({order,setcart}){
 
   useEffect(()=>
   {
-    axios.get('http://localhost:8080/orders',{
+    axios.get('https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/orders',{
       params: {
         userId: user.email
     }
   }
   ).then(response=>
       {
-        setOrders(response.data)
-        console.log(orders);
+        setOrders(response.data);
+        console.log(response.data);
       }).catch(error=>console.log(error))
   },[])
     return(
         <>
         <NavBar />
-        { order.length ?
+        { orders.length ?
         <div className="frame1">
         <div className="cartGrid">
           
@@ -42,15 +42,20 @@ export default function Orders({order,setcart}){
                         <th>Quantity</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      {order.map((item, index) => (
+                      {orders.map((order, index) => {
+                        return (
+                          <tbody className="outerRow" key={index}>
+                        {order.orderItems.map((product)=>(
                         <tr key={index}>
-                          <td>{index + 1}.&nbsp;&nbsp;{item.productName}</td>
-                          <td>{item.price}</td>
-                          <td>{item.quantity}</td>
+                          <td>{index + 1}.&nbsp;&nbsp;{product.productName}</td>
+                          <td>{product.price}</td>
+                          <td>{product.quantity}</td>
                         </tr>
+                        
                       ))}
                     </tbody>
+                        );
+                      })}
                   </table>
                   </div>
                   {paymentStatus ? (
