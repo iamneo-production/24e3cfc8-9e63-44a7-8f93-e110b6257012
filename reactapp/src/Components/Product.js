@@ -1,36 +1,67 @@
 import NavBar from "./NavBar";
-import "./home.css";
+import "../Styles/home.css";
 import { useState } from "react";
+import axios from 'axios';
+import OrderButton from './OrderButton';
 
-export default function Products({prod,cart,setcart}){
-    // const [cart, setcart]=useState([]);
-    // function al(){
-    //     alert("clicked")
-    // }
-   
+export default function Products({ prod, cart, setcart, id }) {
+    let data = JSON.parse(localStorage.getItem("data"));
 
-    const cartHandler=(prod)=>{
-   
-          setcart([...cart,prod]);
-          console.log(cart);
+    const [productName, setProductName] = useState(prod.productName);
+    const [userId, setUserId] = useState(data.email);
+    const [price, setPrice] = useState(prod.price);
+    const [productQuantity, setProductQuantity] = useState(1);
+    const [imageUrl, setImageUrl] = useState(prod.imageUrl);
+
+    const cartHandler = () => {
+        const payload = {
+            productName: productName,
+            userId: userId,
+            price: price,
+            quantity: productQuantity,
+            imageUrl: imageUrl
+          };
+          
+        axios.post("http://localhost:8080/addcart", payload).then(response => {
+            console.log(response.data)
+        }).catch(error => console.log(error));
+
+    }
+
+    function increaseQuantity() {
+        if(productQuantity<prod.quantity){
+        setProductQuantity(productQuantity + 1);
         }
+    }
+
+    function decreaseQuantity() {
+        if(productQuantity>1){
+        setProductQuantity(productQuantity - 1);
+        }
+    }
+   
 
 
-    return(
+    return (
         <>
-        <div className="grid">
-        <img src={prod.imageUrl} alt="My Image" ></img>
-        <div className="nameprice">
-        <div className="BL">{prod.productName}</div><br /><br />
-        <div className="BL" >{prod.price}</div><br />
-        <button id="cartbutton" className="BL" onClick={()=>cartHandler(prod)}>Add to cart</button>
-        
-        </div>
-        
+            <div className="grid">
+                <img src={prod.imageUrl} alt="My Image" ></img>
+                <div className="nameprice">
+                    <div className="BL">{prod.productName}</div><br /><br />
+                    <div className="BL" >{prod.price}</div><br />
+                    <button className="quantityHandler" onClick={decreaseQuantity}>-</button>
+                    <button className="quantityHandler">{productQuantity}</button>
+                    <button className="quantityHandler" onClick={increaseQuantity}>+</button>
+                    {/* <p>{userId}</p> */}
+                    <OrderButton prod={prod} userId={userId} productQuantity={productQuantity} />
+                    <button id="cartbutton" className="BL" onClick={() => cartHandler(prod)}>Add to cart</button>
 
-        </div>
-       
-        
+                </div>
+
+
+            </div>
+
+
         </>
     )
 }
