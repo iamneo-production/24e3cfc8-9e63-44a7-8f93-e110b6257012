@@ -22,23 +22,24 @@ export default function LoginPage(props) {
     const handleLogin = async (e) =>{
         e.preventDefault();
         console.log(data);
-        axios.post('http://localhost:8080/login',data)
+        axios.post('https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/login',data)
         .then(response =>{
         console.log(`${response.data} from login`)
         if(response.data===true)
             {
-                axios.get(`http://localhost:8080/getuser/${data.email}`).then(response=>
+                axios.get(`https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/getuser${data.email}`).then(response=>
                 {
                     console.log(response.data);
                     doLogin(response.data);
+                    toast.success('login Successfull');
+                    props.changeLog();
+                    navigate("/home"); 
 
                 }).catch(error=>
                     {
                         console.log(error);
                     })
-                toast.success('login Successfull');
-                props.changeLog();
-                navigate("/home"); 
+               
                 
             }
                 else{
