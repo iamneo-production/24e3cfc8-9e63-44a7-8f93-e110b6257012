@@ -16,8 +16,8 @@ export default function RegisterPage(){
       }
     );
 
-
-    const handleSignup = async (e) => {
+  
+const handleSignup = async (e) => {
       console.log(user);
         e.preventDefault();
         const response = axios.post('https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/signup',user).then((response)=>{
@@ -26,13 +26,16 @@ export default function RegisterPage(){
           navigate('/');
     }).catch((error)=>console.log(error));
     }
+  
     return(
         <>
         
         <div className="header">Register</div>
         <div id="registerBox">
         <h1 style={{color: "blue"}}>Sign Up</h1>
+  
         <form onSubmit={handleSignup}>
+  
         <input className="input" id="email" onChange={(e) => setUser({...user,email:e.target.value})} placeholder="Enter email"></input><br />
         <input className="input" id="username" onChange={(e) => setUser({...user,userName:e.target.value})} placeholder="Enter username"></input><br />
         <input className="input" onChange={(e) => setUser({...user,mobileNumber:e.target.value})} id="mobileNumber" placeholder="Enter Mobilenumber"></input><br />
