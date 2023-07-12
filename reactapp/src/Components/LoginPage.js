@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import "./login.css";
+import "../Styles/login.css";
 import axios from 'axios';
 import { useNavigate, Link, json } from "react-router-dom";
 import { doLogin, isLoggedIn } from "./auth/authentication";
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
 export default function LoginPage(props) {
     const navigate = useNavigate();
     const [data, setData] = useState({
@@ -31,7 +31,7 @@ export default function LoginPage(props) {
                 {
                     console.log(response.data);
                     doLogin(response.data);
-                    toast.success('login Successfull');
+                    // toast.success('login Successfull');
                     props.changeLog();
                     navigate("/home"); 
 

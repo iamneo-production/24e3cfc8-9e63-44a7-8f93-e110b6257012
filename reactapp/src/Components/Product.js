@@ -2,7 +2,7 @@ import NavBar from "./NavBar";
 import "../Styles/home.css";
 import { useState } from "react";
 import axios from 'axios';
-import OrderButton from './OrderButton';
+// import OrderButton from './OrderButton';
 
 export default function Products({ prod, cart, setcart, id }) {
     let data = JSON.parse(localStorage.getItem("data"));
@@ -53,7 +53,7 @@ export default function Products({ prod, cart, setcart, id }) {
                     <button className="quantityHandler">{productQuantity}</button>
                     <button className="quantityHandler" onClick={increaseQuantity}>+</button>
                     {/* <p>{userId}</p> */}
-                    <OrderButton prod={prod} userId={userId} productQuantity={productQuantity} />
+                    {/* <OrderButton prod={prod} userId={userId} productQuantity={productQuantity} /> */}
                     <button id="cartbutton" className="BL" onClick={() => cartHandler(prod)}>Add to cart</button>
 
                 </div>

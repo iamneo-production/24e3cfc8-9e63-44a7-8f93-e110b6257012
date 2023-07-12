@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "./login.css";
+import "../Styles/login.css";
 import {Link, Navigate, useNavigate} from "react-router-dom";
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
 
 export default function RegisterPage(){
   const navigate=useNavigate();
@@ -21,7 +21,7 @@ const handleSignup = async (e) => {
       console.log(user);
         e.preventDefault();
         const response = axios.post('https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/signup',user).then((response)=>{
-          toast("Registration succesfull")
+          // toast("Registration succesfull")
           console.log(response.data)
           navigate('/');
     }).catch((error)=>console.log(error));
