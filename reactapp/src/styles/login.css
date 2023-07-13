@@ -1,0 +1,52 @@
+.header{
+    color: white;
+    font-size: 2em;
+    height: 50px;
+    /* width: 100vh; */
+    text-align: center;
+    background-color:#684ba3;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: blue;
+    font-size: 1.5em;
+    opacity: 1;
+  }
+.input{
+    
+    height: 40px;
+    width: 40%;
+    padding: 3px;
+    margin: 15px;
+    color: white;
+    border: none;
+    background-color: rgb(99, 99, 176);
+}
+
+#loginBox,#registerBox{
+    text-align: center;
+    align-items: center;
+    margin: 70px;
+}
+
+#loginButton,#submitButton{
+    color: white;
+    font-size: 1.5em;
+    border: none;
+    height: 40px;
+    width: 10%;
+    background-color:#684ba3;
+    cursor: pointer;
+    margin: 20px;
+}
+
+#loginButton:hover,#submitButton:hover{
+    color: white;
+    font-size: 1.5em;
+    border: none;
+    height: 40px;
+    width: 10%;
+    background-color:grey;
+    cursor: pointer;
+    margin: 20px;
+}
