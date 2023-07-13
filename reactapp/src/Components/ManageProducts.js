@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import NavBar from './NavBar';
-import './styles/ProductPage.css';
+import '../styles/Productspage.css';
 import axios from 'axios';
 export default function Manageproducts() {
     const [products, setProducts] = useState([]);
@@ -10,6 +10,11 @@ export default function Manageproducts() {
     const [productImageUrl, setProductImageUrl] = useState('');
     const [productQuantity, setProductQuantity] = useState('');
     const [id,setId]=useState(1);
+    const [update, setUpdate] = useState(false);
+    const [isEdit, setIsedit] = useState(false);
+    const [Editid, setEditid] = useState('');
+    
+
     const handleProductNameChange = (event) => {
       setProductName(event.target.value);
     };
@@ -33,7 +38,7 @@ export default function Manageproducts() {
         {
           console.log(error)
         })
-      setProducts(prevProducts => prevProducts.filter(product => product.productName!== name));
+      // setProducts(prevProducts => prevProducts.filter(product => product.productName!== name));
     };
     const handleAddProduct = () => {
       const newProduct = {
@@ -55,6 +60,45 @@ export default function Manageproducts() {
       setProductQuantity('');
       setId((prevId) => prevId + 1);
     };
+
+    const handleEdit = (id, name, price, quantity, url) => {
+      setProductName(name)
+      setIsedit(true)
+      setEditid(id)
+      setProductPrice(price)
+      setProductQuantity(quantity)
+      setProductImageUrl(url)
+  
+      // console.log(product.productName)
+      console.log("clicked edit")
+  
+    }
+  
+    const handleUpdate = () => {
+      const newProduct = {
+        productName: productName,
+        price: productPrice,
+        imageUrl: productImageUrl,
+        quantity: productQuantity,
+        // toast.success('login Successfull');
+      };
+  
+      axios.put(`http://localhost:8080/api/update/${Editid}`, newProduct)
+        .then((response) => {
+          console.log('Data updated successfully!');
+          // Handle any further actions or update the state if needed
+        })
+        .catch((error) => {
+          console.error('Error updating data:', error);
+          // Handle any errors
+        });
+      setIsedit(false)
+      setProductName('');
+      setProductPrice('');
+      setProductImageUrl('');
+      setProductQuantity('');
+    }
+  
     useEffect(()=>
       {
         axios.get("http://localhost:8080/admin").then(response=>
@@ -90,7 +134,7 @@ export default function Manageproducts() {
                     <td>{product.quantity}</td>
                     <td>
                       <button onClick={() => handleDeleteProduct(product.productId,product.productName)} id ={`deleteProduct${id}` }>Delete</button>
-                      <button edit={`editProduct${id}`}>Edit</button>
+                      <button onClick={() => handleEdit(product.productId, product.productName, product.price, product.quantity, product.imageUrl)} id={`editProduct${id}`}>Edit</button>
                     </td>
                   </tr>
                 ))}
@@ -131,10 +175,10 @@ export default function Manageproducts() {
               onChange={handleProductQuantityChange}
               className="form-input"
             />
-            <button onClick={handleAddProduct}    className="add-button">
-              Add
-      
-            </button>
+            {
+              isEdit ? <button onClick={() => handleUpdate()} className="add-button">Update</button> :
+                <button onClick={handleAddProduct} className="add-button">Add</button>
+            }
           </div>
           
         </div>
