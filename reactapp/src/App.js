@@ -1,6 +1,4 @@
 import './App.css';
-<<<<<<< HEAD
-=======
 import LoginPage from "./Components/LoginPage"
 import PrivatRoute from "./Components/PrivatRoute"
 import Product from "./Components/Product"
@@ -9,13 +7,12 @@ import Cart from "./Components/Cart"
 import Orders from "./Components/Orders"
 import RegisterPage from "./Components/RegisterPage"
 import ManageOrders from './Components/ManageOrders';
-import Manageproducts from './Components/ManageProducts';
+import Manageproducts from './Components/Manageproducts';
 import {BrowserRouter,Routes, Route} from "react-router-dom";
 import NavBar from './Components/NavBar';
 import { useState } from 'react';
 import { doLogout } from './Components/auth/authentication';
 
->>>>>>> 0ba4f914c02f62978505501554460576575d8b0a
 
 function App() {
   const [Auth, setAuth]=useState(false);
@@ -31,24 +28,6 @@ function App() {
   }
   
   return (
-<<<<<<< HEAD
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-=======
     <BrowserRouter>
       <Routes>
         
@@ -71,7 +50,6 @@ function App() {
       </Routes>
       </BrowserRouter>
    
->>>>>>> 0ba4f914c02f62978505501554460576575d8b0a
   );
 }
 
