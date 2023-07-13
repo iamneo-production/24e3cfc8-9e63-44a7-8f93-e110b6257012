@@ -15,7 +15,7 @@ export default function Orders({order,setcart}){
 
   useEffect(()=>
   {
-    axios.get('http://localhost:8080/orders',{
+    axios.get('https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/orders',{
       params: {
         userId: user.email
     }

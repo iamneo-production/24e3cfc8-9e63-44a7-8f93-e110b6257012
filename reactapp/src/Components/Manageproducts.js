@@ -12,7 +12,7 @@ export default function Manageproducts() {
     const [id,setId]=useState(1);
     const [update, setUpdate] = useState(false);
     const [isEdit, setIsedit] = useState(false);
-    const [Editid, setEditid] = useState('');
+    const [Editid, setEditid] = useState();
     
 
     const handleProductNameChange = (event) => {
@@ -31,7 +31,7 @@ export default function Manageproducts() {
       setProductQuantity(event.target.value);
     };
     const handleDeleteProduct = (id,name) => {
-      axios.get(`http://localhost:8080/admin/delete/${id}`).then(response=>
+      axios.get(`https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/admin/delete/${id}`).then(response=>
         {
           console.log(response.data)
         }).catch((error)=>
@@ -48,7 +48,7 @@ export default function Manageproducts() {
         quantity: productQuantity,
       };
       
-      axios.post("http://localhost:8080/admin/addProduct",newProduct).then(response=>
+      axios.post("https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/admin/addProduct",newProduct).then(response=>
       {
         console.log(response.data)
       }).catch(error=>console.log(error));
@@ -83,7 +83,7 @@ export default function Manageproducts() {
         // toast.success('login Successfull');
       };
   
-      axios.put(`http://localhost:8080/api/update/${Editid}`, newProduct)
+      axios.put(`https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/api/update/${Editid}`, newProduct)
         .then((response) => {
           console.log('Data updated successfully!');
           // Handle any further actions or update the state if needed
@@ -101,7 +101,7 @@ export default function Manageproducts() {
   
     useEffect(()=>
       {
-        axios.get("http://localhost:8080/admin").then(response=>
+        axios.get("https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/admin").then(response=>
         {
           setProducts(response.data);
         }).catch(error=>console.log(error))

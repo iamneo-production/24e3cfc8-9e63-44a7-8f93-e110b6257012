@@ -22,7 +22,7 @@ export default function Products({ prod, cart, setcart, id }) {
             imageUrl: imageUrl
           };
           
-        axios.post("http://localhost:8080/addcart", payload).then(response => {
+        axios.post("https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/addcart", payload).then(response => {
             console.log(response.data)
         }).catch(error => console.log(error));
 
