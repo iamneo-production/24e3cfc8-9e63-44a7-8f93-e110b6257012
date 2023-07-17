@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import './App.css';
 import LoginPage from "./Components/LoginPage"
 import PrivatRoute from "./Components/PrivatRoute"
@@ -57,3 +58,18 @@ function App() {
 }
 
 export default App;
+=======
+import logo from './logo.svg';
+import './App.css';
+import LoginPage from './Components/Login';
+
+function App() {
+  return (
+    <div className="App">
+      <LoginPage/>
+    </div>
+  );
+}
+
+export default App;
+>>>>>>> 2edeffc9f50e13452109126379718959b5fa7257
