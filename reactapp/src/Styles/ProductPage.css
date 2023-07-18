@@ -1,0 +1,131 @@
+.page-container {
+  background-color: grey;
+  padding: 20px;
+}
+.navbar {
+  background-color: rgb(72, 8, 72);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.menu li.logout {
+  margin-left: auto; /* Push Logout item to the right */
+}
+
+
+
+.logo {
+  flex-grow: 1;
+  text-align: left;
+}
+
+  
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+.item
+{
+  flex-grow:1;
+  text-align: center;
+}
+
+
+  .form-container {
+      background-color: rgb(56, 9, 56);
+      border-radius: 20px;
+      padding: 20px;
+      color: white;
+      width: 20%;
+      margin-top: 4%;
+      height: 100%;
+    }
+    
+
+
+.table-container {
+  width: 75%;
+}
+
+
+.form-input {
+  border-radius: 5px;
+  background-color: lightblue;
+  width: 90%;
+  padding: 5px;
+  margin-bottom: 14px;
+  padding-left: 3px;
+  height: 20px;
+}
+
+.add-button {
+  margin-top: 5px;
+  border-radius: 5px;
+  height: 35px;
+  width: 70px;
+  background-color: lightblue;
+  padding: 5px 10px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  align-items: center;
+  font-size: 1em;
+  margin-left: 35%;
+}
+
+.add-button:hover {
+  margin-top: 5px;
+  border-radius: 5px;
+  height: 35px;
+  width: 70px;
+  background-color: grey;
+  padding: 5px 10px;
+  color: blue(132, 85, 115);
+  cursor: pointer;
+  align-items: center;
+  margin-left: 35%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: rgb(61, 7, 61);
+  color: white;
+}
+
+th,
+td {
+  padding: 10px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: lightblue;
+}
+
+img {
+  max-width: 50px;
+  max-height: 50px;
+}
+body {
+  background-color: grey;
+  margin: 0;
+  padding: 0;
+}
