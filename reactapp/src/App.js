@@ -7,7 +7,7 @@ import Cart from "./Components/Cart"
 import Orders from "./Components/Orders"
 import RegisterPage from "./Components/RegisterPage"
 import ManageOrders from './Components/ManageOrders';
-import Manageproducts from './Components/ManageProducts';
+import Manageproducts from './Components/Manageproducts';
 import {BrowserRouter,Routes, Route} from "react-router-dom";
 import NavBar from './Components/NavBar';
 import { useState } from 'react';
