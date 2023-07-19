@@ -3,16 +3,11 @@ import NavBar from "./NavBar";
 import "./home.css";
 import axios from "axios";
 import { getcurrentuser } from "./auth/authentication";
+import {Link } from 'react-router-dom';
+import OrderItems from "./OrderItems";
 export default function Orders({order,setcart}){
  const [orders,setOrders] =useState([]);
   const user=getcurrentuser();
-  const [paymentStatus, setPaymentStatus] = useState(null);
-
-  const handlePay = async (e) => {
-    e.preventDefault();
-    setPaymentStatus("Payment successful");
-  }
-
   useEffect(()=>
   {
     axios.get('https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/orders',{
@@ -37,31 +32,26 @@ export default function Orders({order,setcart}){
                     <table>
                     <thead >
                       <tr>
-                        <th>Product Name</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
+                        <th>OrderId  </th>
+                        <th>Total Price</th>
+                        <th>OrderItems</th>
                       </tr>
                     </thead>
                       {orders.map((order, index) => {
                         return (
                           <tbody className="outerRow" key={index}>
-                        {order.orderItems.map((product)=>(
                         <tr key={index}>
-                          <td>{index + 1}.&nbsp;&nbsp;{product.productName}</td>
-                          <td>{product.price}</td>
-                          <td>{product.quantity}</td>
+                          <td>{index + 1}.&nbsp;&nbsp;{order.orderId}</td>
+                          <td>{`Rs ${order.totalPrice}`}</td>
+                          <td><Link  to={{
+                    pathname: `/orderItems/${order.orderId}`,
+                  }}>Order Items</Link></td>
                         </tr>
-                        
-                      ))}
                     </tbody>
                         );
                       })}
                   </table>
                   </div>
-                  {paymentStatus ? (
-                <p style={{ fontWeight: 'bold', color: 'darkblue', textAlign: 'center' }}>{paymentStatus}</p>
-              ) : 
-                  (<button onClick={handlePay} className="placeButton">Pay</button>)}
                   </div>
                   </div> : <h1>No any order placed yet</h1> }
                   
