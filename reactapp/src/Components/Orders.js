@@ -54,7 +54,6 @@ export default function Orders({order,setcart}){
                   </div>
                   </div>
                   </div> : <h1>No any order placed yet</h1> }
-                  
 
         </>
     )
