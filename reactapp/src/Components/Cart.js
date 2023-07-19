@@ -13,14 +13,14 @@ export default function Cart({cart,order,setorder,setcart}){
   const [status, setStatus] = useState("In Progress");
   const [orderItems,setOrderItems]=useState([]);
   useEffect(() => {
-    axios.get(`https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/cart/${id}`).then(response => {
+    axios.get(`https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/cart/${id}`).then(response => {
       setcartItems(response.data);
     }).catch(error => console.log(error))
   }, [cartItems])
 
   const handleDeleteCartItem = (id,name) => {
     // console.log(cartItemId)
-    axios.delete(`https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/cart/delete/${id}`).then(response => {
+    axios.delete(`https://8080-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/cart/delete/${id}`).then(response => {
       console.log(response.data)
     }).catch((error) => {
       console.log(error)
@@ -50,14 +50,14 @@ function handleOrder(){
   };
 
   try {
-    axios.post('https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/saveOrders', nOrders);
+    axios.post('https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/saveOrders', nOrders);
   } catch (error) {
     console.error(error);
   }
 
   // delete cart items once order is placed
     try {
-      axios.delete(`https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/cart/deleteCart/${id}`);
+      axios.delete(`https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/cart/deleteCart/${id}`);
     } catch (error) {
       console.error(error);
     }

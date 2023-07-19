@@ -8,7 +8,7 @@ function ManageOrders(){
   console.log(orders)
 
   useEffect(() => {
-    axios.get('https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/admin/orders')
+    axios.get('https://8080-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/admin/orders')
       .then(response => {
         setOrders(response.data);
       })

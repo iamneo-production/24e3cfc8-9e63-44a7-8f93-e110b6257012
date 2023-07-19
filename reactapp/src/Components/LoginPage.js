@@ -22,12 +22,12 @@ export default function LoginPage(props) {
     const handleLogin = async (e) =>{
         e.preventDefault();
         console.log(data);
-        axios.post('https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/login',data)
+        axios.post('https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/login',data)
         .then(response =>{
         console.log(`${response.data} from login`)
         if(response.data===true)
             {
-                axios.get(`https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/getuser/${data.email}`).then(response=>
+                axios.get(`https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/getuser/${data.email}`).then(response=>
                 {
                     console.log(response.data);
                     doLogin(response.data);
@@ -56,7 +56,7 @@ export default function LoginPage(props) {
         )
     }
     return (
-        <>
+        <div style={{backgroundColor:"white",height:"100vh"}}>
             <div className="header">Login</div>
             <div id="loginBox">
                 <input onChange={(e) => setData({...data,email:e.target.value})} className="input" id="email" placeholder="Enter email"></input><br />
@@ -65,7 +65,7 @@ export default function LoginPage(props) {
                 <div>New user?<Link to="/register" style={{ textDecoration: 'none' }} > Sign Up</Link></div>
 
             </div>
-        </>
+        </div>
 
     );
 }

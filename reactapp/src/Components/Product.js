@@ -22,7 +22,7 @@ export default function Products({ prod, cart, setcart, id }) {
             imageUrl: imageUrl
           };
           
-        axios.post("https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/addcart", payload).then(response => {
+        axios.post("https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/addcart", payload).then(response => {
             console.log(response.data)
         }).catch(error => console.log(error));
 
@@ -47,8 +47,8 @@ export default function Products({ prod, cart, setcart, id }) {
             <div className="grid">
                 <img src={prod.imageUrl} alt="My Image" ></img>
                 <div className="nameprice">
-                    <div className="BL">{prod.productName}</div><br /><br />
-                    <div className="BL" >{prod.price}</div><br />
+                    <div className="BL">{prod.productName}</div>
+                    <div className="BR" >&#x20B9;{prod.price}</div><br />
                     <button className="quantityHandler" onClick={decreaseQuantity}>-</button>
                     <button className="quantityHandler">{productQuantity}</button>
                     <button className="quantityHandler" onClick={increaseQuantity}>+</button>

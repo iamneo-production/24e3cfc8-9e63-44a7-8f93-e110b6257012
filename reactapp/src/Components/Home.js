@@ -12,7 +12,7 @@ export default function Home({ Logout, cart, setcart }) {
     const [user, setUser] = useState(false);
     useEffect(() => {
         // Fetch getproductproduct details from the API
-        axios.get("https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/home").then(response => {
+        axios.get("https://8080-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/home").then(response => {
             setproduct(response.data);
             setUser(isLoggedIn());
             console.log(response.data);
@@ -27,7 +27,7 @@ export default function Home({ Logout, cart, setcart }) {
         <>
             <NavBar Logout={Logout} />
             <div id="productHomeBody" className="homePage">
-                <h1 style={{ color: "white", fontFamily: 'Gill Sans' }}>Welcome</h1>
+                <h1 style={{fontFamily: 'Gill Sans' }}>Welcome</h1>
                 {user ? product.map((prod, idd) => (
                     <Product prod={prod} cart={cart} setcart={setcart} key={idd} id={id} />
                 )) : <h1>Admin</h1>}

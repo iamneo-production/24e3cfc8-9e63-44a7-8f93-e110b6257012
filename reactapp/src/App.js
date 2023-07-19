@@ -12,6 +12,7 @@ import {BrowserRouter,Routes, Route} from "react-router-dom";
 import NavBar from './Components/NavBar';
 import { useState } from 'react';
 import { doLogout } from './Components/auth/authentication';
+import OrderItems from './Components/OrderItems';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
         <Route path="orders" element={<Orders  order={order} setcart={setcart} />} />
         <Route path="manageorders" element={<ManageOrders/>} />
         <Route path="manageproducts" element={<Manageproducts/>} />
+        <Route path="/OrderItems/:orderId" element={<OrderItems/>} />
       </Route>
 
       {/* <Route element={<PrivatRouteForAdmin Auth={Auth}/>} >

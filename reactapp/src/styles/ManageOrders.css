@@ -1,23 +1,14 @@
 .frame1{
   height: 2000px;
   margin-top: 20px;
-  background-color:#b39ab8;
+  background-color:whitesmoke;
 }
 .cartGrid{
   padding-top: 30px;
   margin-left: 10%;
   margin-right: 10%;
 }
-.navbar {
-  background-color: rgb(72, 8, 72);
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  margin-bottom: 20px;
-  margin-top: 0;
-}
+
 table {
     border-radius: 8px;
     width: 100%;
@@ -41,7 +32,6 @@ th{
     color: white;
 }
 thead{
-  background-color: #61226b ;
   border-radius: 10px;
 } 
 table th { 
@@ -54,7 +44,6 @@ table {
 
 table th,
 .cartTable tbody.outerRow {
-  border-bottom: 10px solid #b39ab8; 
   margin-bottom: 10px; 
 }
 

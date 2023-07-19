@@ -10,7 +10,7 @@ export default function NavBar({Logout}){
     })
     return(
         <>
-        <div className="navbar">
+        <div className="navbar" style={{backgroundColor: "#232f3e"}}>
             { user && (
                 <>
                 <NavLink style={{fontSize:"25px", paddingTop: "9px"}} className="link" to="/">Lens Mart</NavLink>

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import NavBar from './NavBar';
 import '../styles/Productspage.css';
 import axios from 'axios';
+
 export default function Manageproducts() {
     const [products, setProducts] = useState([]);
     const [productName, setProductName] = useState('');
@@ -12,7 +13,7 @@ export default function Manageproducts() {
     const [id,setId]=useState(1);
     const [update, setUpdate] = useState(false);
     const [isEdit, setIsedit] = useState(false);
-    const [Editid, setEditid] = useState();
+    const [Editid, setEditid] = useState('');
     
 
     const handleProductNameChange = (event) => {
@@ -31,7 +32,7 @@ export default function Manageproducts() {
       setProductQuantity(event.target.value);
     };
     const handleDeleteProduct = (id,name) => {
-      axios.get(`https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/admin/delete/${id}`).then(response=>
+      axios.get(`https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/admin/delete/${id}`).then(response=>
         {
           console.log(response.data)
         }).catch((error)=>
@@ -48,7 +49,7 @@ export default function Manageproducts() {
         quantity: productQuantity,
       };
       
-      axios.post("https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/admin/addProduct",newProduct).then(response=>
+      axios.post("https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/admin/addProduct",newProduct).then(response=>
       {
         console.log(response.data)
       }).catch(error=>console.log(error));
@@ -83,7 +84,7 @@ export default function Manageproducts() {
         // toast.success('login Successfull');
       };
   
-      axios.put(`https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/api/update/${Editid}`, newProduct)
+      axios.put(`https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/api/update/${Editid}`, newProduct)
         .then((response) => {
           console.log('Data updated successfully!');
           // Handle any further actions or update the state if needed
@@ -101,7 +102,7 @@ export default function Manageproducts() {
   
     useEffect(()=>
       {
-        axios.get("https://8080-ecdecfbaaafafbbceacbdbafeefd.project.examly.io/admin").then(response=>
+        axios.get("https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/admin").then(response=>
         {
           setProducts(response.data);
         }).catch(error=>console.log(error))
@@ -113,7 +114,8 @@ export default function Manageproducts() {
       <div className="page-container">
         <div className="content">
         <div className="table-container">
-            <table>
+          <div className="cartTable">
+            <table >
               <thead>
                 <tr>
                   <th>Image</th>
@@ -127,22 +129,23 @@ export default function Manageproducts() {
                 {products.map((product, index) => (
                   <tr key={index}>
                     <td>
-                      <img src={product.imageUrl} alt={product.name} />
+                      <img className='productImage' src={product.imageUrl} alt={product.name} />
                     </td>
                     <td>{product.productName}</td>
                     <td>{product.price}</td>
                     <td>{product.quantity}</td>
                     <td>
                       <button onClick={() => handleDeleteProduct(product.productId,product.productName)} id ={`deleteProduct${id}` }>Delete</button>
-                      <button onClick={() => handleEdit(product.productId, product.productName, product.price, product.quantity, product.imageUrl)} id={`editProduct${id}`}>Edit</button>
+                      <button onClick={() => handleEdit(product.productId, product.productName, product.price, product.quantity, product.imageUrl)} edit={`editProduct${id}`}>Edit</button>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
+          </div>
           <div className="form-container">
-            <h2>Add Product</h2>
+            <h2 style={{color:"black",textAlign:"center"}}>Add Product</h2>
             <input
               type="text"
               placeholder="enter product name"
@@ -176,8 +179,9 @@ export default function Manageproducts() {
               className="form-input"
             />
             {
-              isEdit ? <button onClick={() => handleUpdate()} className="add-button">Update</button> :
-                <button onClick={handleAddProduct} className="add-button">Add</button>
+              
+              isEdit ? <button onClick={() => handleUpdate()} variant="contained" color="primary" className="add-button">Update</button> :
+                <button onClick={handleAddProduct}  variant="contained" color="primary" className="add-button">Add</button>
             }
           </div>
           
