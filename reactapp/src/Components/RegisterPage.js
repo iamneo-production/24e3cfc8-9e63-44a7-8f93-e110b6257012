@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { useFormik } from "formik";
-import { signUpSchema } from "./Schemas/signUpSchema";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import './register.css';
-import Button from '@mui/material/Button';
+import { signUpSchema } from "./schemas/signUpSchema";
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+import '../styles/register.css';
+
 const initialValues = {
   userName: "",
   email: "",
@@ -22,17 +22,19 @@ export default function RegisterPage() {
       initialValues,
       validationSchema: signUpSchema,
       onSubmit: (values, action) => {
-        handleSignup();
+        handleSignup(values);
         action.resetForm();
       },
     });
     console.log(
+      
+      
     );
 
   const handleSignup = () => {
-    const response = axios.post('http://localhost:8080/signup', values)
+    const response = axios.post('https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/signup', values)
       .then((response) => {
-        toast("Registration successful");
+        // toast("Registration successful");
         console.log(response.data);
         navigate('/');
       })
@@ -40,7 +42,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <>
+    <div style={{backgroundColor:"white",height:"100vh"}}>
       <div className="register-header">Register</div>
       <div className="register-box">
         <h1 className="register-title">Sign Up</h1>
@@ -87,7 +89,6 @@ export default function RegisterPage() {
             <p className="register-error">{errors.mobileNumber}</p>
           ) : null}
 
-
           <input
             className="register-input"
             type="password"
@@ -119,20 +120,19 @@ export default function RegisterPage() {
           ) : null}
 
           <div>
-            <Button
+            <button
               className="register-submit"
-              id="submitBtn"
+              id="submitButton"
               type="submit"
               disabled={Object.keys(errors).length !== 0}
-              variant="contained"
             >
               Submit
-            </Button>
+            </button>
           </div>
         </form>
 
         <div>Already a User?<Link to="/" style={{ textDecoration: 'none' }}> Login</Link></div>
       </div>
-    </>
+    </div>
   );
 }
