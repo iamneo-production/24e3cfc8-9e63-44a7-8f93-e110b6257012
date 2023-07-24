@@ -3,9 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { useFormik } from "formik";
 import { signUpSchema } from "./schemas/signUpSchema";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import './register.css';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+import '../styles/register.css';
 
 const initialValues = {
   userName: "",
@@ -32,9 +32,9 @@ export default function RegisterPage() {
     );
 
   const handleSignup = () => {
-    const response = axios.post('http://localhost:8080/signup', values)
+    const response = axios.post('https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/signup', values)
       .then((response) => {
-        toast("Registration successful");
+        // toast("Registration successful");
         console.log(response.data);
         navigate('/');
       })
@@ -42,7 +42,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <>
+    <div style={{backgroundColor:"white",height:"100vh"}}>
       <div className="register-header">Register</div>
       <div className="register-box">
         <h1 className="register-title">Sign Up</h1>
@@ -133,6 +133,6 @@ export default function RegisterPage() {
 
         <div>Already a User?<Link to="/" style={{ textDecoration: 'none' }}> Login</Link></div>
       </div>
-    </>
+    </div>
   );
 }
