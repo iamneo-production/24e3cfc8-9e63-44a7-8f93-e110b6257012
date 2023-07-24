@@ -9,7 +9,7 @@ export default function Home({ Logout, cart, setcart }) {
     let data = JSON.parse(localStorage.getItem("data"));
     const [id, setid] = useState(data.email)
     const [product, setproduct] = useState([])
-    const [user, setUser] = useState(false);
+    const [user, setUser] = useState(true);
     useEffect(() => {
         // Fetch getproductproduct details from the API
         axios.get("https://8080-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/home").then(response => {

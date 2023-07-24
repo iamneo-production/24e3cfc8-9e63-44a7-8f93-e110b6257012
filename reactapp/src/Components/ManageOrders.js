@@ -43,13 +43,13 @@ function ManageOrders(){
                       <tr>
                         <td rowSpan={numItems + 1}>{order.orderId}</td>
                         <td rowSpan={numItems + 1}>{order.userId}</td>
-                        <td rowSpan={numItems + 1}>${order.totalPrice}</td>
+                        <td rowSpan={numItems + 1}>&#x20B9;{order.totalPrice}</td>
                       </tr>
                       {order.orderItems.map((item, itemIndex) => (
                         <tr key={itemIndex}>
                           <td>{item.productName}</td>
                           <td>{item.quantity}</td>
-                          <td>${item.price}</td>
+                          <td>&#x20B9;{item.price}</td>
                         </tr>
                     ))}
                     </tbody>

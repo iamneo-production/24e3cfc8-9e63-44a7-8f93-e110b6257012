@@ -34,13 +34,10 @@ export default function LoginPage(props) {
                     // toast.success('login Successfull');
                     props.changeLog();
                     navigate("/home"); 
-
                 }).catch(error=>
                     {
                         console.log(error);
-                    })
-               
-                
+                    })        
             }
                 else{
                     alert("enter valid details");
