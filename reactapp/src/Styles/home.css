@@ -1,66 +1,67 @@
-.navbar{
+.navbar {
     position: sticky;
     top: 0;
-    color: white;
+    color: black;
     font-size: 2em;
     height: 50px;
     text-align: center;
-    background-color: #3e0049 ;
+    background-color: white;
     font-family: 'Courier New', Courier, monospace;
-    
+
 }
 
-.link{
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+.link {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
 }
 
-#logout{
+#logout {
     float: right;
 }
 
-.active{
-    /* text-decoration: none;
-     */
+.active {
+    
     font-weight: bold;
     text-align: center;
     padding-top: 6px;
     font-size: 0.9em;
 }
 
-.homePage{
-    text-align: center;
+.homePage {
+    padding: 0;
+    margin: 0px;
     text-align: center;
     align-items: center;
-}
-
-#productHomeBody{
-   
-    /* box-sizing: border-box; */
-    margin-top: 6px;
+    color: black;
     height: 100em;
-  width: 100vw;
-  background-color: #8c6292;
+    width: 100vw;
+    background-color: #f5f5f5;
 }
 
-.grid{
-    padding:50px;
+/* #productHomeBody {
+    height: 100em;
+    width: 100vw;
+    background-color: #f5f5f5;
+} */
+
+.grid {
+    padding: 30px;
     /* margin-left: 30%; */
-    margin: 20px;
+    margin: 10px;
     /* height: 50px; */
     display: inline-table;
-    border-radius: 30px;
+    border-radius: 20px;
 
-    
+
     background-color: white;
-    
+
 }
 
-img{
+img {
     margin: 0px;
     padding: 1px;
     height: 9em;
@@ -69,44 +70,26 @@ img{
     background: none;
 }
 
-.BL{
+.BL {
     /* background-color: blueviolet; */
     float: left;
-    font-size: 1.2em;
+    font-size: 1.1em;
+    display: inline;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
 }
-.BR{
+
+.BR {
     float: right;
 
-    font-size: 1.2em;
-    /* display: inline; */
+    font-size: 1.1em;
+    display: inline;
+    font-weight: bold;
+    font-family: Helvetica, sans-serif;
 }
 
-#cartbutton{
- 
-    font-size: 1em;
-    height: 2em;
-    background-color: white;
-    margin: 20px;
-    border: 1px solid black;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 0%;
-    padding-bottom: 0%;
-    margin-left: 0%;
-}
+#cartbutton {
 
-#cartbutton:hover{
-    
-    font-size: 1.01em;
-    /* height: 2.2em; */
-    background-color: #61226b;
-    margin: 20px;
-    border: 1px solid black;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    margin-bottom: 0%;
-    margin-left: 0%;
-    padding-bottom: 0%;
+    margin-right: 2px;
 }
 
