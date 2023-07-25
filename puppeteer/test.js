@@ -3,11 +3,7 @@ const puppeteer = require('puppeteer');
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     try{
-<<<<<<< HEAD
-    await page.goto('https://8081-fedecacbbbadceafafbbcefaabfececdfccc.project.examly.io/');
-=======
-    await page.goto('https://8081-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/');
->>>>>>> Lens_Mart-Saikalyan19
+    await page.goto('https://8081-dceecbcfcfebfafbbceacbdbafeefd.project.examly.io/');
     await page.setViewport({
       width:1200,
       height:800,
@@ -39,11 +35,7 @@ const puppeteer = require('puppeteer');
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     try{
-<<<<<<< HEAD
-    await page.goto('https://8081-fedecacbbbadceafafbbcefaabfececdfccc.project.examly.io/');
-=======
-    await page.goto('https://8081-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/');
->>>>>>> Lens_Mart-Saikalyan19
+    await page.goto('https://8081-dceecbcfcfebfafbbceacbdbafeefd.project.examly.io/');
     await page.setViewport({
       width:1200,
       height:800,
@@ -70,11 +62,7 @@ const puppeteer = require('puppeteer');
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     try{
-<<<<<<< HEAD
-    await page.goto('https://8081-fedecacbbbadceafafbbcefaabfececdfccc.project.examly.io/');
-=======
-    await page.goto('https://8081-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/');
->>>>>>> Lens_Mart-Saikalyan19
+    await page.goto('https://8081-dceecbcfcfebfafbbceacbdbafeefd.project.examly.io/');
     await page.setViewport({
       width:1200,
       height:800,
@@ -107,11 +95,7 @@ const puppeteer = require('puppeteer');
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   try{
-<<<<<<< HEAD
-  await page.goto('https://8081-fedecacbbbadceafafbbcefaabfececdfccc.project.examly.io/');
-=======
-  await page.goto('https://8081-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/');
->>>>>>> Lens_Mart-Saikalyan19
+  await page.goto('https://8081-dceecbcfcfebfafbbceacbdbafeefd.project.examly.io/');
   await page.setViewport({
     width:1200,
     height:800,
