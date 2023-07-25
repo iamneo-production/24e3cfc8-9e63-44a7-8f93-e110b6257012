@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "../Styles/login.css";
+import "../styles/login.css";
 import axios from 'axios';
 import { useNavigate, Link, json } from "react-router-dom";
 import { doLogin, isLoggedIn } from "./auth/authentication";
@@ -27,20 +27,17 @@ export default function LoginPage(props) {
         console.log(`${response.data} from login`)
         if(response.data===true)
             {
-                axios.get(`https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/getuser${data.email}`).then(response=>
+                axios.get(`https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/getuser/${data.email}`).then(response=>
                 {
                     console.log(response.data);
                     doLogin(response.data);
                     // toast.success('login Successfull');
                     props.changeLog();
                     navigate("/home"); 
-
                 }).catch(error=>
                     {
                         console.log(error);
-                    })
-               
-                
+                    })        
             }
                 else{
                     alert("enter valid details");
@@ -56,7 +53,7 @@ export default function LoginPage(props) {
         )
     }
     return (
-        <>
+        <div style={{backgroundColor:"white",height:"100vh"}}>
             <div className="header">Login</div>
             <div id="loginBox">
                 <input onChange={(e) => setData({...data,email:e.target.value})} className="input" id="email" placeholder="Enter email"></input><br />
@@ -65,7 +62,7 @@ export default function LoginPage(props) {
                 <div>New user?<Link to="/register" style={{ textDecoration: 'none' }} > Sign Up</Link></div>
 
             </div>
-        </>
+        </div>
 
     );
 }
