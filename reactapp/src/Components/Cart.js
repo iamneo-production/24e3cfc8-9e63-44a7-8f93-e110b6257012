@@ -1,8 +1,8 @@
 import NavBar from "./NavBar";
 // import "./home.css";
-// import Carts from "./Carts"
+import Carts from "./Carts"
 import { useEffect, useState } from 'react';
-import "../Styles/cart.css"
+import "../styles/cart.css"
 import axios from 'axios';
 
 export default function Cart({cart,order,setorder,setcart}){
@@ -13,14 +13,14 @@ export default function Cart({cart,order,setorder,setcart}){
   const [status, setStatus] = useState("In Progress");
   const [orderItems,setOrderItems]=useState([]);
   useEffect(() => {
-    axios.get(`http://localhost:8080/cart/${id}`).then(response => {
+    axios.get(`https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/cart/${id}`).then(response => {
       setcartItems(response.data);
     }).catch(error => console.log(error))
   }, [cartItems])
 
   const handleDeleteCartItem = (id,name) => {
     // console.log(cartItemId)
-    axios.delete(`http://localhost:8080/cart/delete/${id}`).then(response => {
+    axios.delete(`https://8080-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/cart/delete/${id}`).then(response => {
       console.log(response.data)
     }).catch((error) => {
       console.log(error)
@@ -30,41 +30,38 @@ export default function Cart({cart,order,setorder,setcart}){
 
   };
 
-  function handleOrder(){
-    const tempOrderItems = []; 
-    cartItems.forEach((item) => {
-      const nItems = {
-        productName: item.productName,
-        quantity: item.quantity,
-        price: item.price
-      };
-      tempOrderItems.push(nItems); 
-    });
-  
-    setOrderItems(tempOrderItems);
-  
-    const nOrders = {
-      userId: id,
-      orderItems: tempOrderItems,
-      status: status
+function handleOrder(){
+  const tempOrderItems = []; 
+  cartItems.forEach((item) => {
+    const nItems = {
+      productName: item.productName,
+      quantity: item.quantity,
+      price: item.price
     };
-  
-    try {
-      axios.post('http://localhost:8080/saveOrder', nOrders);
-    } catch (error) {
-      console.error(error);
-    }
-    
-    // delete cart items once once order is placed
-    try {
-      axios.delete(`http://localhost:8080/cart/deleteCart/${id}`);
-    } catch (error) {
-      console.error(error);
-    }
-    
-    
+    tempOrderItems.push(nItems); 
+  });
+
+  setOrderItems(tempOrderItems);
+
+  const nOrders = {
+    userId: id,
+    orderItems: tempOrderItems, 
+    status: status
+  };
+
+  try {
+    axios.post('https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/saveOrders', nOrders);
+  } catch (error) {
+    console.error(error);
   }
-  
+
+  // delete cart items once order is placed
+    try {
+      axios.delete(`https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/cart/deleteCart/${id}`);
+    } catch (error) {
+      console.error(error);
+    }
+}
 
     return(
         <>
