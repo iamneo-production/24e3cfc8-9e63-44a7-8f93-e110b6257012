@@ -14,13 +14,15 @@ import com.examly.springapp.model.Order;
 import com.examly.springapp.model.UserModel;
 import com.examly.springapp.Repository.OrderModelRepository;
 import com.examly.springapp.model.OrderItems;
-
+import com.examly.springapp.model.ProductModel;
+import com.examly.springapp.Repository.ProductRepo;
 @CrossOrigin("*")
 @RestController
 public class OrderController { 
     @Autowired
 	public OrderModelRepository OrderRepository;
-
+    @Autowired
+	public ProductRepo productRepo;
 
 @GetMapping("/orders")
 	public List<Order> getUserProducts(@RequestParam("userId") String userId) {
@@ -39,6 +41,9 @@ public List<Order> getAllOrder() {
 	double tPrice=0.0;
 	for(OrderItems orderItems: order.getOrderItems()) {
 		tPrice+=Double.valueOf(orderItems.getPrice());
+		ProductModel prod=productRepo.findByProductName(orderItems.getProductName());
+		prod.setQuantity(String.valueOf(Integer.parseInt(prod.getQuantity())-(orderItems.getQuantity())));
+		productRepo.save(prod);
 	}
 	order.setTotalPrice(String.valueOf(tPrice));
 	 OrderRepository.save(order);
