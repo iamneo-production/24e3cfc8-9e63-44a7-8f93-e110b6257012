@@ -1,6 +1,5 @@
 package com.examly.springapp.model;
 import javax.persistence.*;
-import lombok.Data;
 
 @Entity
 @Table(name = "cart")

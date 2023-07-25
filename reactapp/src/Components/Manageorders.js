@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Orders.css';
+import '../styles/Orders.css';
 import CardComponent from './CardComponent';
-import './home.css';
 import NavBar from './NavBar';
 
 

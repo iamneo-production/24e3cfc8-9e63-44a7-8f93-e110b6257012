@@ -1,6 +1,5 @@
 import React from 'react';
-import '../Styles/CardComponent.css'
-import './home.css'
+import '../styles/CardComponent.css'
 function CardComponent({orderItems,onClose}) {
   return (
     <div className="card-overlay">

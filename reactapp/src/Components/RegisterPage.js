@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { useFormik } from "formik";
-import { signUpSchema } from "./schemas/signUpSchema";
+import {signUpSchema} from "./schemas/signUpSchema";
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 import '../styles/register.css';
@@ -32,7 +32,7 @@ export default function RegisterPage() {
     );
 
   const handleSignup = () => {
-    const response = axios.post('https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/signup', values)
+    const response = axios.post('https://8080-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/signup', values)
       .then((response) => {
         // toast("Registration successful");
         console.log(response.data);

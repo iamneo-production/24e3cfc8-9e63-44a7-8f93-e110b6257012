@@ -8,11 +8,11 @@ import Orders from "./Components/Orders"
 import RegisterPage from "./Components/RegisterPage"
 import Manageorders from './Components/Manageorders';
 import Manageproducts from './Components/Manageproducts';
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route,BrowserRouter} from "react-router-dom";
 import NavBar from './Components/NavBar';
 import { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 import { doLogout } from './Components/auth/authentication';
 
 
@@ -30,8 +30,7 @@ function App() {
   }
   
   return (
-    <>
-    <ToastContainer />
+    <BrowserRouter>
       <Routes>
         
         <Route element={<PrivatRoute Auth={Auth}/>} >
@@ -51,7 +50,7 @@ function App() {
         <Route path="/" element={<LoginPage Auth={Auth} changeLog={changeLog}/>}/>
         <Route path="register" element={<RegisterPage />} />
       </Routes>
-      </>
+      </BrowserRouter>
    
   );
 }

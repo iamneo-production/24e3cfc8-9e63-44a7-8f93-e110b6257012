@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.springframework.web.bind.annotation.*;
 
 import com.examly.springapp.model.CartModel;
-import com.examly.springapp.repo.CartModelRepo;
+import com.examly.springapp.Repository.CartModelRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,5 @@
 import NavBar from "./NavBar";
 // import "./home.css";
-import Carts from "./Carts"
 import { useEffect, useState } from 'react';
 import "../styles/cart.css"
 import axios from 'axios';
