@@ -13,7 +13,7 @@ public class UserModel {
 	private String password;
 	private String userName;
 	private String mobileNumber;
-	private String active;
+	private String active="active";
 	private String role="user";
 	
 	public String getEmail() {
