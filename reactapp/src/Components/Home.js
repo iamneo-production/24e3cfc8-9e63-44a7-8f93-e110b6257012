@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import NavBar from "./NavBar";
-import "../styles/home.css";
+import "../Styles/home.css";
 import axios from 'axios';
 import { isLoggedIn } from "./auth/authentication";
 import Product from "./Product";

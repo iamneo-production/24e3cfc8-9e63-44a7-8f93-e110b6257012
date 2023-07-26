@@ -1,5 +1,5 @@
 import {NavLink} from "react-router-dom";
-import "../styles/home.css";
+import "../Styles/home.css";
 import { useEffect, useState } from "react";
 import { isLoggedIn } from "./auth/authentication";
 export default function NavBar({Logout}){

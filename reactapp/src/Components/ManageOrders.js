@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState,useEffect} from 'react';
 import axios from 'axios';
-import '../styles/ManageOrders.css';
+import '../Styles/ManageOrders.css';
 import NavBar from './NavBar'
 function ManageOrders(){
   const [orders, setOrders] = useState([]);

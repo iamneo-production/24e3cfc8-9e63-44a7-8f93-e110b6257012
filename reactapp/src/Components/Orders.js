@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import NavBar from "./NavBar";
-import "./home.css";
+import "../Styles/home.css";
 import axios from "axios";
 import { getcurrentuser } from "./auth/authentication";
 import {Link } from 'react-router-dom';

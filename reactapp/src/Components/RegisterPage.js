@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { useFormik } from "formik";
-import { signUpSchema } from "./schemas/signUpSchema";
+import { signUpSchema } from "../Components/schemas/signUpSchema";
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
-import '../styles/register.css';
+import '../Styles/register.css';
 
 const initialValues = {
   userName: "",

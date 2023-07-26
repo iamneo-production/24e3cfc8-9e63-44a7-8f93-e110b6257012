@@ -1,5 +1,5 @@
 import NavBar from "./NavBar";
-import "../styles/home.css";
+import "../Styles/home.css";
 import { useState } from "react";
 import axios from 'axios';
 import OrderButton from './OrderButton';

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import NavBar from './NavBar';
-import '../styles/Productspage.css';
+import '../Styles/Productspage.css';
 import axios from 'axios';
 
 export default function Manageproducts() {

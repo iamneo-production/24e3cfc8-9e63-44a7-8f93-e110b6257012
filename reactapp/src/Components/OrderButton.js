@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
-import "../styles/home.css";
+import "../Styles/home.css";
 
 export default function OrderButton ({ prod ,userId ,productQuantity}){
     const orderHandler=()=>{
