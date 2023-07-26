@@ -22,12 +22,12 @@ export default function LoginPage(props) {
     const handleLogin = async (e) =>{
         e.preventDefault();
         console.log(data);
-        axios.post('https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/login',data)
+        axios.post('https://8080-ddcfaefdffafbbcefaabfececdfccc.project.examly.io/login',data)
         .then(response =>{
         console.log(`${response.data} from login`)
         if(response.data===true)
             {
-                axios.get(`https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/getuser/${data.email}`).then(response=>
+                axios.get(`https://8080-ddcfaefdffafbbcefaabfececdfccc.project.examly.io/getuser/${data.email}`).then(response=>
                 {
                     console.log(response.data);
                     doLogin(response.data);
