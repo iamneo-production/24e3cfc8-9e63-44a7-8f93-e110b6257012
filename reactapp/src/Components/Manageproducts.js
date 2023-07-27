@@ -10,7 +10,6 @@ export default function Manageproducts() {
     const [productPrice, setProductPrice] = useState('');
     const [productImageUrl, setProductImageUrl] = useState('');
     const [productQuantity, setProductQuantity] = useState('');
-    const [id,setId]=useState(1);
     const [update, setUpdate] = useState(false);
     const [isEdit, setIsedit] = useState(false);
     const [Editid, setEditid] = useState('');
@@ -59,7 +58,6 @@ export default function Manageproducts() {
       setProductPrice('');
       setProductImageUrl('');
       setProductQuantity('');
-      setId((prevId) => prevId + 1);
     };
 
     const handleEdit = (id, name, price, quantity, url) => {
@@ -135,8 +133,8 @@ export default function Manageproducts() {
                     <td>{product.price}</td>
                     <td>{product.quantity}</td>
                     <td>
-                      <button onClick={() => handleDeleteProduct(product.productId,product.productName)} id ={`deleteProduct${id}` }>Delete</button>
-                      <button onClick={() => handleEdit(product.productId, product.productName, product.price, product.quantity, product.imageUrl)} edit={`editProduct${id}`}>Edit</button>
+                      <button onClick={() => handleDeleteProduct(product.productId,product.productName)} id ={`deleteProduct${index}` }>Delete</button>
+                      <button onClick={() => handleEdit(product.productId, product.productName, product.price, product.quantity, product.imageUrl)} edit={`editProduct${index}`}>Edit</button>
                     </td>
                   </tr>
                 ))}
