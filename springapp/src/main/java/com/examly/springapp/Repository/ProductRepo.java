@@ -5,4 +5,5 @@ import com.examly.springapp.model.ProductModel;
 
 public interface ProductRepo extends JpaRepository<ProductModel, Integer>{
 
+   public ProductModel findByProductName(String productName);
 }

@@ -16,6 +16,7 @@ public class ProductModel {
 	private Integer productId;
 	@Column(name="imageUrl",length = 300)
 	private String imageUrl;
+	@Column(unique=true, nullable = false)
 	private String productName;
 	private String price;
 	private String description;

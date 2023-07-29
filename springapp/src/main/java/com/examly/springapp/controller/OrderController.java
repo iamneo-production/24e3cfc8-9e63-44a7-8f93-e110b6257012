@@ -12,13 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.examly.springapp.model.Order;
 import com.examly.springapp.model.UserModel;
 import com.examly.springapp.Repository.OrderModelRepository;
+import com.examly.springapp.Repository.ProductRepo;
 import com.examly.springapp.model.OrderItems;
+import com.examly.springapp.model.ProductModel;
 
 @CrossOrigin("*")
 @RestController
 public class OrderController { 
     @Autowired
 	public OrderModelRepository OrderRepository;
+	@Autowired
+	public ProductRepo repo;
 
 
 @GetMapping("/orders")
@@ -37,10 +41,13 @@ public List<Order> getAllOrder() {
  {
 	double tPrice=0.0;
 	for(OrderItems orderItems: order.getOrderItems()) {
-		tPrice+=Double.valueOf(orderItems.getPrice());
+		tPrice+=Double.valueOf(Integer.parseInt(orderItems.getPrice())*(orderItems.getQuantity()));
+		ProductModel product = repo.findByProductName(orderItems.getProductName());
+		product.setQuantity(String.valueOf(Integer.parseInt(product.getQuantity())-orderItems.getQuantity()));
+		repo.save(product);
 	}
 	order.setTotalPrice(String.valueOf(tPrice));
-	 OrderRepository.save(order);
+	OrderRepository.save(order);
 
     return "cart items sent to orders" ;
 }
