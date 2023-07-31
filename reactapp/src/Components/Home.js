@@ -12,7 +12,7 @@ export default function Home({ Logout, cart, setcart }) {
     const [user, setUser] = useState(true);
     useEffect(() => {
         // Fetch getproductproduct details from the API
-        axios.get("https://8080-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/home").then(response => {
+        axios.get("https://8080-bbfbddbccbeeeffafbbcefaabfececdfccc.project.examly.io/home").then(response => {
             setproduct(response.data);
             setUser(isLoggedIn());
             console.log(response.data);

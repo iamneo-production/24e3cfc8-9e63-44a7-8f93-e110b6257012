@@ -1,5 +1,5 @@
-package com.examly.springapp.controller;
-import com.examly.springapp.Repository.ProductRepo;
+package com.example.springapp.controller;
+import com.example.springapp.Repository.ProductRepo;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.examly.springapp.model.ProductModel;
+import com.example.springapp.model.ProductModel;
 
 
 @CrossOrigin("*")

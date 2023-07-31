@@ -1,4 +1,4 @@
-package com.examly.springapp.model;
+package com.example.springapp.model;
 import javax.persistence.*;
 
 @Entity

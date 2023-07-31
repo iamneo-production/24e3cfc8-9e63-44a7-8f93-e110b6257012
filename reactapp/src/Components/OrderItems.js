@@ -20,7 +20,7 @@ export default function OrderItems(){
   }, [orderId]);
   const fetchOrderItems = async (orderId) => {
     try {
-      const response = await axios.get(`https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/orders/${orderId}`);
+      const response = await axios.get(`https://8080-bbfbddbccbeeeffafbbcefaabfececdfccc.project.examly.io/orders/${orderId}`);
       const data = response.data;
       setOrderItems(data.orderItems);
       console.log(orderItems);

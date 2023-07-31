@@ -11,7 +11,7 @@ function Manageorders() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8093/admin/orders')
+      .get('https://8080-bbfbddbccbeeeffafbbcefaabfececdfccc.project.examly.io/admin/orders')
       .then(response => {
         setOrders(response.data);
       })

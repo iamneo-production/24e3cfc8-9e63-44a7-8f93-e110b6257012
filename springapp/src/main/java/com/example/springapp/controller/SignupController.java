@@ -1,18 +1,17 @@
-package com.examly.springapp.controller;
+package  com.example.springapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.examly.springapp.model.LoginModel;
-import com.examly.springapp.model.UserModel;
-import com.examly.springapp.Repository.userRepo;
+import com.example.springapp.model.LoginModel;
+import com.example.springapp.model.UserModel;
+import com.example.springapp.Repository.userRepo;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/")
 public class SignupController {
 	@Autowired
-	userRepo repo;
+	public userRepo repo;
 	@PostMapping("/signup")
 	public boolean saveUser(@RequestBody UserModel user)
 	{
@@ -24,7 +23,6 @@ public class SignupController {
 	    }
 	}
 	
-	@CrossOrigin("*")
 	@GetMapping("/getuser/{email}")
 	public UserModel getuser(@PathVariable String email)
 	{	

@@ -32,7 +32,7 @@ export default function RegisterPage() {
     );
 
   const handleSignup = () => {
-    const response = axios.post('https://8080-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/signup', values)
+    axios.post("https://8080-bbfbddbccbeeeffafbbcefaabfececdfccc.project.examly.io/signup", values)
       .then((response) => {
         // toast("Registration successful");
         console.log(response.data);

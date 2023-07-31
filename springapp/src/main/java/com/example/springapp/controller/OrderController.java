@@ -1,4 +1,4 @@
-package com.examly.springapp.controller;
+package com.example.springapp.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.examly.springapp.model.Order;
-import com.examly.springapp.model.UserModel;
-import com.examly.springapp.Repository.OrderModelRepository;
-import com.examly.springapp.model.OrderItems;
-import com.examly.springapp.model.ProductModel;
-import com.examly.springapp.Repository.ProductRepo;
+import com.example.springapp.model.Order;
+import com.example.springapp.model.UserModel;
+import com.example.springapp.Repository.OrderModelRepository;
+import com.example.springapp.model.OrderItems;
+import com.example.springapp.model.ProductModel;
+import com.example.springapp.Repository.ProductRepo;
 @CrossOrigin("*")
 @RestController
 public class OrderController { 

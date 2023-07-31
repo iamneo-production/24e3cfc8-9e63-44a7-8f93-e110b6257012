@@ -1,17 +1,17 @@
-package com.examly.springapp.controller;
+package com.example.springapp.controller;
 import java.util.List;
 import java.util.ArrayList;
 
 import org.springframework.web.bind.annotation.*;
 
-import com.examly.springapp.model.CartModel;
-import com.examly.springapp.Repository.CartModelRepo;
+import com.example.springapp.model.CartModel;
+import com.example.springapp.Repository.CartModelRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin("*")
 @RestController
 
 public class CartController {

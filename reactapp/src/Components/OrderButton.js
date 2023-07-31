@@ -19,7 +19,7 @@ export default function OrderButton ({ prod ,userId ,productQuantity}){
         console.log(newOrder);
         
         try {
-                axios.post('https://8080-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/saveOrder', newOrder);
+                axios.post('https://8080-bbfbddbccbeeeffafbbcefaabfececdfccc.project.examly.io/saveOrder', newOrder);
                 } catch (error) {
                   console.error(error);
                 }

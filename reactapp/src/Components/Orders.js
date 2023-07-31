@@ -10,7 +10,7 @@ export default function Orders({order,setcart}){
   const user=getcurrentuser();
   useEffect(()=>
   {
-    axios.get('https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/orders',{
+    axios.get('https://8080-bbfbddbccbeeeffafbbcefaabfececdfccc.project.examly.io/orders',{
       params: {
         userId: user.email
     }

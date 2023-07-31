@@ -31,7 +31,7 @@ export default function Manageproducts() {
       setProductQuantity(event.target.value);
     };
     const handleDeleteProduct = (id,name) => {
-      axios.get(`https://8080-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/admin/delete/${id}`).then(response=>
+      axios.get(`https://8080-bbfbddbccbeeeffafbbcefaabfececdfccc.project.examly.io/admin/delete/${id}`).then(response=>
         {
           console.log(response.data)
         }).catch((error)=>
@@ -48,7 +48,7 @@ export default function Manageproducts() {
         quantity: productQuantity,
       };
       
-      axios.post("https://8080-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/admin/addProduct",newProduct).then(response=>
+      axios.post("https://8080-bbfbddbccbeeeffafbbcefaabfececdfccc.project.examly.io/admin/addProduct",newProduct).then(response=>
       {
         console.log(response.data)
       }).catch(error=>console.log(error));
@@ -83,7 +83,7 @@ export default function Manageproducts() {
         // toast.success('login Successfull');
       };
   
-      axios.put(`https://8080-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/api/update/${Editid}`, newProduct)
+      axios.put(`https://8080-bbfbddbccbeeeffafbbcefaabfececdfccc.project.examly.io/api/update/${Editid}`, newProduct)
         .then((response) => {
           console.log('Data updated successfully!');
           // Handle any further actions or update the state if needed
@@ -101,7 +101,7 @@ export default function Manageproducts() {
   
     useEffect(()=>
       {
-        axios.get("https://8080-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/admin").then(response=>
+        axios.get("https://8080-bbfbddbccbeeeffafbbcefaabfececdfccc.project.examly.io/admin").then(response=>
         {
           setProducts(response.data);
         }).catch(error=>console.log(error))
