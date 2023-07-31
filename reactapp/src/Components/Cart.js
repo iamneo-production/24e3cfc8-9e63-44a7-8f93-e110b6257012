@@ -50,14 +50,14 @@ function handleOrder(){
   };
 
   try {
-    axios.post('https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/saveOrders', nOrders);
+    axios.post('https://8080-ddcfaefdffafbbcefaabfececdfccc.project.examly.io/saveOrders', nOrders);
   } catch (error) {
     console.error(error);
   }
 
   // delete cart items once order is placed
     try {
-      axios.delete(`https://ide-ecdecfbaaafafbbcefaabfececdfccc.project.examly.io/proxy/8080/cart/deleteCart/${id}`);
+      axios.delete(`https://8080-ddcfaefdffafbbcefaabfececdfccc.project.examly.io/cart/deleteCart/${id}`);
     } catch (error) {
       console.error(error);
     }
