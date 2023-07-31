@@ -31,7 +31,7 @@ export default function LoginPage(props) {
                 {
                     console.log(response.data);
                     doLogin(response.data);
-                    // toast.success('login Successfull');
+
                     props.changeLog();
                     navigate("/home"); 
 
